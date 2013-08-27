@@ -1,0 +1,37 @@
+Program : RandomCell
+
+Description:
+
+Code to generate randomised initial atomic configurations based on interatomic 
+separation criteria. 
+
+Compilation: $FORTRAN_COMPILER random_cell.f
+
+-----------------------------------------------------------------------------------------------
+Requires input file: random_cell_input.dat 
+
+Each of the first three lines edit to your desired system, it can take up to 20 species.
+Numbers of each type should be in the order of the names.
+
+The next lines should have the cutoffs for the interatomic distances. This is read in in upper
+triangular matrix format ie:
+
+AA  AB  AC  AD ......
+--  BB  BC  BD ......
+--  --  CC  CD ......
+--  --  --  DD ......
+..  ..  ..  .. ......
+..  ..  ..  .. ......
+
+-- : Do not enter value.
+So for the second species you start off with the cutoff with species of the same type, and do
+not enter the value for cutoffs with the first species, and so on.
+
+The last three lines contain the cell parameters.
+-----------------------------------------------------------------------------------------------
+OUTPUT
+
+The program creates the files random.xyz and CONFIG, which are the coordinates of the random 
+atoms in xyz and DL_POLY formats respictevly.
+
+-----------------------------------------------------------------------------------------------
